@@ -1,0 +1,20 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data & Output Files (Ne pas commiter les données générées)
+data/*.db
+data/atoll_exports/*.csv
+outputs/*.xlsx
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
