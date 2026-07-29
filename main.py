@@ -4,7 +4,7 @@ main.py
 Orchestrateur principal du projet 'Mobile Radio Performance & Carbon Footprint Optimizer'.
 Exécute la chaîne complète étape par étape :
 1. Génération de la base SQLite simulée (500 sites).
-2. Extraction SQL & Nettoyage Pandas.
+2. Extraction SQL, Nettoyage Pandas & Modélisation de Propagation (Cost-231 Hata).
 3. Analyse des KPIs Radio & Algorithme RSE (MIMO Sleep Mode).
 4. Dimensionnement Radio & Export compatible ATOLL (ACP/AFP).
 5. Génération du Dashboard Excel aux couleurs de Bouygues Telecom.
@@ -18,6 +18,7 @@ from src.data_ingestion import fetch_merged_network_data
 from src.kpi_analyzer import analyze_radio_performance, calculate_decarbonization_impact
 from src.radio_dimensioning import generate_radio_recommendations, export_to_atoll_format
 from src.excel_reporter import create_styled_excel_report
+from src.propagation_model import process_propagation_analysis
 
 
 def print_banner():
@@ -35,19 +36,22 @@ def run_pipeline():
     print_banner()
 
     # -------------------------------------------------------------------------
-    # ÉTAPE 1 : Génération de la BDD SQLite & Ingestion
+    # ÉTAPE 1 : Génération de la BDD SQLite, Ingestion & Propagation Model
     # -------------------------------------------------------------------------
-    print("🚀 [Étape 1/5] Initialisation & Ingestion des données réseau...")
+    print("🚀 [Étape 1/5] Initialisation, Ingestion & Modélisation de Propagation...")
     build_database()
     raw_df = fetch_merged_network_data()
-    print("   └─ Dataframe brut chargé avec succès.\n")
+    
+    # Intégration du modèle Cost-231 Hata
+    enriched_df = process_propagation_analysis(raw_df)
+    print("   └─ Modèle Cost-231 Hata appliqué avec succès.\n")
 
     # -------------------------------------------------------------------------
     # ÉTAPE 2 : Analyse de Performance & Calcul RSE
     # -------------------------------------------------------------------------
     print("🔍 [Étape 2/5] Analyse des KPIs Radio & Impact Décarbonation...")
-    perf_summary = analyze_radio_performance(raw_df)
-    eco_metrics = calculate_decarbonization_impact(raw_df)
+    perf_summary = analyze_radio_performance(enriched_df)
+    eco_metrics = calculate_decarbonization_impact(enriched_df)
 
     # -------------------------------------------------------------------------
     # ÉTAPE 3 : Dimensionnement Radio & Export ATOLL
