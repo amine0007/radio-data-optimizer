@@ -34,3 +34,56 @@ Un outil d'ingénierie radio et d'optimisation énergétique de niveau productio
  └──────────────────────────────┬────────────────────────────────┘
                                 ▼
               [ Cockpit Excel Bouygues Telecom ]
+```
+
+## 🚀 Structure du Répertoire
+```Bash
+radio-data-optimizer/
+│
+├── data/                      # Stockage des données binaires et exports (ignoré par Git)
+│   ├── atoll_exports/
+│   └── network_data.db
+│
+├── outputs/                   # Rapports consolidés (Excel, etc.)
+│
+├── src/                       # Modules Python métier
+│   ├── __init__.py
+│   ├── database_builder.py    # Génération et ingestion SQLite
+│   ├── data_ingestion.py      # Extraction SQL & requêtes optimisées
+│   ├── kpi_analyzer.py        # Moteur d'analyse radio & détection d'anomalies
+│   ├── rse_calculator.py      # Algorithmes d'efficacité énergétique (MIMO Sleep)
+│   ├── atoll_exporter.py      # Générateur d'exports d'ingénierie ATOLL
+│   └── excel_reporter.py      # Mise en forme du rapport final openpyxl
+│
+├── main.py                    # Script orchestrateur principal
+├── requirements.txt           # Dépendances Python
+└── README.md                  # Documentation du projet
+```
+
+## ⚡ Quick Start
+#### 1) Cloner le projet & Installer les dépendances
+
+```Bash
+git clone [https://github.com/amine007/radio-data-optimizer.git](https://github.com/amine007/radio-data-optimizer.git)
+cd radio-data-optimizer
+pip install -r requirements.txt
+```
+
+#### 2) Exécuter le pipeline complet
+
+```Bash
+python main.py
+```
+
+## 📈 Résultats du Pipeline (Exemple de Run)
+```bash
+================================================================================
+📊 Rapport Exécutif d'Optimisation Réseau
+================================================================================
+└─ Cellules analysées : 3,746 sur 500 sites radio
+└─ Cellules dégradées détectées : 149 (4.0%)
+└─ Énergie économisée : 1,020,211.5 kWh / an
+└─ Impact Carbone Évité : 56.11 tonnes CO2 / an 🍃
+└─ Temps d'exécution total : 12.16s
+================================================================================
+```
