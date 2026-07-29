@@ -141,7 +141,3 @@ Exemple de sortie console :
 - **Dimensionnement compatible ATOLL** : génération de recommandations exportables en ACP/AFP.
 - **Reporting exécutif** : génération d’un rapport Excel stylisé adapté à un usage opérationnel.
 - **Visualisation temps réel** : cockpit web clair, interactif et orienté décision.
-
-## 📄 License
-
-Ajouter ici la licence du projet si nécessaire.
