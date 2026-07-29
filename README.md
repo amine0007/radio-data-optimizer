@@ -44,13 +44,11 @@ Conçu pour automatiser l’analyse de performance des KPI 3G/4G/5G, comparer le
 
 Le projet intègre une couche d’ingénierie radio avancée permettant de comparer le signal réellement reçu sur le terrain \(RSRP_{\text{mesuré}}\) avec les prédictions théoriques issues du modèle **Cost-231 Hata**.
 
-```tex
-\text{Path Loss (dB)} = 46.3 + 33.9 \log_{10}(f) - 13.82 \log_{10}(h_b) - a(h_m) + (44.9 - 6.55 \log_{10}(h_b)) \log_{10}(d)
-```
+**Path Loss (dB) = 46.3 + 33.9 log10(f) - 13.82 log10(hb) - a(hm) + (44.9 - 6.55 log10(hb)) log10(d)**
 
 ### Analyse d’écart & root cause
 
-- **CRITICAL_PATH_LOSS** : écart négatif significatif entre \(RSRP_{\text{théorique}}\) et \(RSRP_{\text{mesuré}}\), pouvant indiquer un masquage urbain, un problème de feeder ou un tilt excessif.
+- **CRITICAL_PATH_LOSS** : écart négatif significatif entre RSRP théorique et RSRP mesuré, pouvant indiquer un masquage urbain, un problème de feeder ou un tilt excessif.
 - **OVER_COVERAGE_RISK** : signal anormalement fort générant des interférences sur les cellules voisines, typiquement lié à l’overshooting.
 - **NOMINAL** : propagation conforme aux modèles empiriques.
 
