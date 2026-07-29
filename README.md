@@ -64,7 +64,7 @@ radio-data-optimizer/
 #### 1) Cloner le projet & Installer les dépendances
 
 ```Bash
-git clone [https://github.com/amine007/radio-data-optimizer.git](https://github.com/amine007/radio-data-optimizer.git)
+git clone https://github.com/amine007/radio-data-optimizer.git
 cd radio-data-optimizer
 pip install -r requirements.txt
 ```
