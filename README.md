@@ -42,7 +42,7 @@ Conçu pour automatiser l’analyse de performance des KPI 3G/4G/5G, comparer le
 
 ## 📐 Modélisation radio & root cause analysis
 
-Le projet intègre une couche d’ingénierie radio avancée permettant de comparer le signal réellement reçu sur le terrain \(RSRP_{\text{mesuré}}\) avec les prédictions théoriques issues du modèle **Cost-231 Hata**.
+Le projet intègre une couche d’ingénierie radio avancée permettant de comparer le signal réellement reçu sur le terrain (RSRP mesuré) avec les prédictions théoriques issues du modèle **Cost-231 Hata**.
 
 **Path Loss (dB) = 46.3 + 33.9 log10(f) - 13.82 log10(hb) - a(hm) + (44.9 - 6.55 log10(hb)) log10(d)**
 
